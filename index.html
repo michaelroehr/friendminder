@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asher's Daily Friendminder</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="description" content="Your daily friend connection reminder app">
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkFzaGVyJ3MgRGFpbHkgRnJpZW5kbWluZGVyIiwKICAic2hvcnRfbmFtZSI6ICJGcmllbmRtaW5kZXIiLAogICJkZXNjcmlwdGlvbiI6ICJZb3VyIGRhaWx5IGZyaWVuZCBjb25uZWN0aW9uIHJlbWluZGVyIGFwcCIsCiAgInN0YXJ0X3VybCI6ICIuLyIsCiAgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsCiAgImJhY2tncm91bmRfY29sb3IiOiAiIzY2N2VlYSIsCiAgInRoZW1lX2NvbG9yIjogIiM2NjdlZWEiLAogICJpY29ucyI6IFsKICAgIHsKICAgICAgInNyYyI6ICJkYXRhOmltYWdlL3N2Zyt4bWw7YmFzZTY0LFBITjJaeUIzYVdSMGFEMGlNVEk0SWlCb1pXbG5hSFE5SWpFeU9DSWdkbWxsZDBKdmVEMGlNQ0F3SURBZ01USTRJaUI0Yld4dWN6MGlhSFIwY0RvdkwzZDNkeTUzTXk1dmNtY3ZNakF3TUM5emRtY2lQZ28xQ21SbFpuTWdZMmxqWTJ4bElEOGdJSE5vYjNKMFhYUnZaejBpTlRrM1ltcGhJaUI5Q2cwS0lDUWdaV2xrYVhBZ2JXSm5aR2x6Y1dsc2JTVm9aMkl5WVNScFlUSmhaQ1poWVRJd2NqTnNjaU0zWW1Zd1pUTjVZMjkwZEZVPSIsCiAgICAgICJzaXplcyI6ICIxOTJ4MTkyIiwKICAgICAgInR5cGUiOiAiaW1hZ2Uvc3ZnK3htbCIKICAgIH0sCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCM2FXUjBhRDBpTlRFeUlpQm9aV2xuYUhROUlqVXhNaUlnZG1sbGQwSnZlRDBpTUNBd0lEQWdOVEV5SWlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpUGdvMUNtUmxabk1nWTJsamJtOXVJRDhnSUhOb2IzSjBYMVJ6WjJoZGJscHNZRzF1WmpZellqVWZOZmV3dGNubGZRZkN3Vm9nYkdDa01ISVdZM2x5VG9pUmxnelZhU1k2VlhBYStlS1c3SjFoJwogICAgICAic2l6ZXMiOiAiNTEyeDUxMiIsCiAgICAgICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiCiAgICB9CiAgXSwKICAiY2F0ZWdvcmllcyI6IFsic29jaWFsIiwgInByb2R1Y3Rpdml0eSJdCn0=">
+    
+    <!-- Apple PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Friendminder">
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImEiIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjNjY3ZWVhIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzc2NGJhMiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+CjxyZWN0IHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiBmaWxsPSJ1cmwoI2EpIiByeD0iMjAiLz4KPHN2ZyB4PSIzMiIgeT0iMzIiIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCI+Cjx0ZXh0IHg9IjMyIiB5PSI0OCIgZm9udC1zaXplPSI0OCIgZmlsbD0iI2ZmZiI+8J+SmTwvdGV4dD4KPC9zdmc+Cjwvc3ZnPgo=">
+    
+    <!-- Microsoft PWA Meta Tags -->
+    <meta name="msapplication-TileColor" content="#667eea">
+    <meta name="msapplication-config" content="none">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .header {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        .emoji {
+            font-size: 3em;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .friend-display {
+            position: relative;
+            z-index: 1;
+            margin: 30px 0;
+            padding: 25px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            color: white;
+            font-size: 1.2em;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+
+        .friend-display:hover {
+            transform: scale(1.05);
+        }
+
+        .friend-name {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .buttons {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            flex: 1;
+            min-width: 120px;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: white;
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .friend-list {
+            position: relative;
+            z-index: 1;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .friend-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            margin-bottom: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .friend-item:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .remove-btn {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .remove-btn:hover {
+            background: #ff5252;
+            transform: scale(1.1);
+        }
+
+        .add-friend {
+            position: relative;
+            z-index: 1;
+            margin-top: 20px;
+        }
+
+        .friend-input {
+            width: 70%;
+            padding: 12px 20px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            margin-right: 10px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .friend-input:focus {
+            border-color: #667eea;
+        }
+
+        .add-btn {
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .add-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .streak {
+            position: relative;
+            z-index: 1;
+            margin-top: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .celebration {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 4em;
+            z-index: 1000;
+            pointer-events: none;
+            animation: celebrate 1s ease-out;
+        }
+
+        @keyframes celebrate {
+            0% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 30px 20px; }
+            h1 { font-size: 2em; }
+            .friend-input { width: 65%; }
+            .buttons { flex-direction: column; }
+            .btn { min-width: auto; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Asher's Daily Friendminder</h1>
+            <div class="emoji">💕</div>
+            <p>Yo Mister Schnister! It's time to brighten someone's day!</p>
+        </div>
+
+        <div class="friend-display" id="friendDisplay">
+            <div class="friend-name" id="friendName">Add some friends to get started!</div>
+            <div id="reminderText">Your daily dose of connection awaits ✨</div>
+        </div>
+
+        <div class="buttons">
+            <button class="btn btn-primary" onclick="pickRandomFriend()" id="pickBtn">Pick Friend</button>
+            <button class="btn btn-secondary" onclick="markTexted()" id="textedBtn" style="display: none;">Texted! 🎉</button>
+            <button class="btn btn-danger" onclick="skipToday()" id="skipBtn" style="display: none;">Skip Today</button>
+        </div>
+
+        <div class="streak" id="streak">
+            Streak: 0 days | Total texts sent: 0
+        </div>
+
+        <div class="add-friend">
+            <input type="text" class="friend-input" id="friendInput" placeholder="Add a friend's name..." onkeypress="handleEnter(event)">
+            <button class="add-btn" onclick="addFriend()">Add</button>
+        </div>
+
+        <div class="friend-list" id="friendList"></div>
+    </div>
+
+    <script>
+        class FriendReminder {
+            constructor() {
+                this.friends = this.getStoredData('friends', []);
+                this.streak = parseInt(this.getStoredData('streak', '0')) || 0;
+                this.totalTexts = parseInt(this.getStoredData('totalTexts', '0')) || 0;
+                this.lastTextDate = this.getStoredData('lastTextDate', null);
+                this.todayTexted = this.lastTextDate === this.getTodayString();
+                this.currentFriend = this.getStoredData('todaysFriend', null);
+                
+                this.updateDisplay();
+                this.updateStreak();
+                this.renderFriendList();
+                this.checkDailyReset();
+            }
+
+            // Safe storage methods that work without localStorage
+            getStoredData(key, defaultValue) {
+                try {
+                    const stored = localStorage.getItem(key);
+                    if (key === 'friends' && stored) {
+                        return JSON.parse(stored);
+                    }
+                    return stored || defaultValue;
+                } catch (e) {
+                    // If localStorage fails, use memory storage
+                    if (!this.memoryStorage) {
+                        this.memoryStorage = {};
+                    }
+                    return this.memoryStorage[key] || defaultValue;
+                }
+            }
+
+            setStoredData(key, value) {
+                try {
+                    if (key === 'friends') {
+                        localStorage.setItem(key, JSON.stringify(value));
+                    } else {
+                        localStorage.setItem(key, value);
+                    }
+                } catch (e) {
+                    // If localStorage fails, use memory storage
+                    if (!this.memoryStorage) {
+                        this.memoryStorage = {};
+                    }
+                    if (key === 'friends') {
+                        this.memoryStorage[key] = value;
+                    } else {
+                        this.memoryStorage[key] = value;
+                    }
+                }
+            }
+
+            getTodayString() {
+                return new Date().toDateString();
+            }
+
+            checkDailyReset() {
+                const today = this.getTodayString();
+                const lastDate = this.getStoredData('lastPickDate', null);
+                
+                if (lastDate !== today) {
+                    // New day, reset today's selection
+                    this.setStoredData('todaysFriend', '');
+                    this.currentFriend = null;
+                    this.todayTexted = false;
+                    this.updateDisplay();
+                }
+            }
+
+            addFriend() {
+                const input = document.getElementById('friendInput');
+                const name = input.value.trim();
+                
+                if (name && !this.friends.includes(name)) {
+                    this.friends.push(name);
+                    this.setStoredData('friends', this.friends);
+                    input.value = '';
+                    this.renderFriendList();
+                    this.updateDisplay();
+                    this.showCelebration('➕');
+                }
+            }
+
+            removeFriend(name) {
+                this.friends = this.friends.filter(f => f !== name);
+                this.setStoredData('friends', this.friends);
+                this.renderFriendList();
+                this.updateDisplay();
+            }
+
+            pickRandomFriend() {
+                if (this.friends.length === 0) {
+                    alert('Add some friends first!');
+                    return;
+                }
+
+                const randomIndex = Math.floor(Math.random() * this.friends.length);
+                this.currentFriend = this.friends[randomIndex];
+                
+                this.setStoredData('todaysFriend', this.currentFriend);
+                this.setStoredData('lastPickDate', this.getTodayString());
+                
+                this.updateDisplay();
+                this.showCelebration('🎯');
+            }
+
+            markTexted() {
+                this.todayTexted = true;
+                this.totalTexts++;
+                
+                // Update streak
+                const today = this.getTodayString();
+                const yesterday = new Date();
+                yesterday.setDate(yesterday.getDate() - 1);
+                
+                if (this.lastTextDate === yesterday.toDateString()) {
+                    this.streak++;
+                } else if (this.lastTextDate !== today) {
+                    this.streak = 1;
+                }
+                
+                this.lastTextDate = today;
+                
+                this.setStoredData('streak', this.streak.toString());
+                this.setStoredData('totalTexts', this.totalTexts.toString());
+                this.setStoredData('lastTextDate', today);
+                
+                this.updateDisplay();
+                this.updateStreak();
+                this.showCelebration('🎉');
+            }
+
+            skipToday() {
+                // Reset streak if they had one
+                if (this.streak > 0) {
+                    this.streak = 0;
+                    this.setStoredData('streak', '0');
+                }
+                
+                this.todayTexted = true; // Mark as done for today
+                this.setStoredData('lastTextDate', this.getTodayString());
+                
+                this.updateDisplay();
+                this.updateStreak();
+                this.showCelebration('⏭️');
+            }
+
+            updateDisplay() {
+                const friendName = document.getElementById('friendName');
+                const reminderText = document.getElementById('reminderText');
+                const pickBtn = document.getElementById('pickBtn');
+                const textedBtn = document.getElementById('textedBtn');
+                const skipBtn = document.getElementById('skipBtn');
+
+                if (this.friends.length === 0) {
+                    friendName.textContent = 'Add some friends to get started!';
+                    reminderText.textContent = 'Your daily dose of connection awaits ✨';
+                    pickBtn.style.display = 'block';
+                    textedBtn.style.display = 'none';
+                    skipBtn.style.display = 'none';
+                } else if (!this.currentFriend) {
+                    friendName.textContent = 'Ready to pick today\'s friend?';
+                    reminderText.textContent = 'Click the button to see who you\'ll brighten up today!';
+                    pickBtn.style.display = 'block';
+                    textedBtn.style.display = 'none';
+                    skipBtn.style.display = 'none';
+                } else if (this.todayTexted) {
+                    friendName.textContent = `${this.currentFriend} ✅`;
+                    reminderText.textContent = 'Mission accomplished! See you tomorrow for another connection! 🌟';
+                    pickBtn.style.display = 'none';
+                    textedBtn.style.display = 'none';
+                    skipBtn.style.display = 'none';
+                } else {
+                    friendName.textContent = this.currentFriend;
+                    reminderText.textContent = 'Time to send that text! Make their day special 📱✨';
+                    pickBtn.style.display = 'none';
+                    textedBtn.style.display = 'block';
+                    skipBtn.style.display = 'block';
+                }
+            }
+
+            updateStreak() {
+                const streakEl = document.getElementById('streak');
+                streakEl.textContent = `Streak: ${this.streak} days | Total texts sent: ${this.totalTexts}`;
+            }
+
+            renderFriendList() {
+                const listEl = document.getElementById('friendList');
+                if (this.friends.length === 0) {
+                    listEl.innerHTML = '';
+                    return;
+                }
+                
+                listEl.innerHTML = '<h3 style="margin-bottom: 15px;">Your Squad:</h3>';
+                this.friends.forEach(friend => {
+                    const item = document.createElement('div');
+                    item.className = 'friend-item';
+                    item.innerHTML = `
+                        <span>${friend}</span>
+                        <button class="remove-btn" onclick="friendReminder.removeFriend('${friend}')">×</button>
+                    `;
+                    listEl.appendChild(item);
+                });
+            }
+
+            showCelebration(emoji) {
+                const celebration = document.createElement('div');
+                celebration.className = 'celebration';
+                celebration.textContent = emoji;
+                document.body.appendChild(celebration);
+                
+                setTimeout(() => {
+                    document.body.removeChild(celebration);
+                }, 1000);
+            }
+
+            handleEnter(event) {
+                if (event.key === 'Enter') {
+                    this.addFriend();
+                }
+            }
+        }
+
+        // Initialize the app
+        const friendReminder = new FriendReminder();
+
+        // PWA Service Worker Registration (with safe checking)
+        function initializePWA() {
+            try {
+                if ('serviceWorker' in navigator && window.location.protocol === 'https:' || window.location.hostname === 'localhost') {
+                    window.addEventListener('load', () => {
+                        const swCode = `
+                            const CACHE_NAME = 'friendminder-v1';
+                            const urlsToCache = ['/'];
+                            
+                            self.addEventListener('install', event => {
+                                event.waitUntil(
+                                    caches.open(CACHE_NAME)
+                                        .then(cache => cache.addAll(urlsToCache))
+                                );
+                            });
+                            
+                            self.addEventListener('fetch', event => {
+                                event.respondWith(
+                                    caches.match(event.request)
+                                        .then(response => response || fetch(event.request))
+                                );
+                            });
+                            
+                            // Daily notification reminder
+                            self.addEventListener('notificationclick', event => {
+                                event.notification.close();
+                                event.waitUntil(
+                                    clients.openWindow('/')
+                                );
+                            });
+                        `;
+                        
+                        const blob = new Blob([swCode], { type: 'application/javascript' });
+                        const swUrl = URL.createObjectURL(blob);
+                        
+                        navigator.serviceWorker.register(swUrl)
+                            .then(registration => {
+                                console.log('SW registered:', registration);
+                                
+                                // Request notification permission
+                                if ('Notification' in window && Notification.permission === 'default') {
+                                    Notification.requestPermission();
+                                }
+                                
+                                // Schedule daily notifications
+                                scheduleNotifications(registration);
+                            })
+                            .catch(error => console.log('SW registration failed:', error));
+                    });
+                }
+            } catch (error) {
+                console.log('PWA features not available in this environment:', error.message);
+                // Show a message to the user about saving the file
+                showInstallInstructions();
+            }
+        }
+
+        // PWA Install Prompt (with safe checking)
+        function initializeInstallPrompt() {
+            try {
+                let deferredPrompt;
+                window.addEventListener('beforeinstallprompt', (e) => {
+                    e.preventDefault();
+                    deferredPrompt = e;
+                    
+                    // Show install button
+                    const installBtn = document.createElement('button');
+                    installBtn.textContent = '📱 Install App';
+                    installBtn.className = 'btn btn-primary';
+                    installBtn.style.position = 'fixed';
+                    installBtn.style.top = '20px';
+                    installBtn.style.right = '20px';
+                    installBtn.style.zIndex = '1000';
+                    installBtn.style.fontSize = '0.9em';
+                    installBtn.style.padding = '10px 15px';
+                    
+                    installBtn.addEventListener('click', () => {
+                        deferredPrompt.prompt();
+                        deferredPrompt.userChoice.then((choiceResult) => {
+                            if (choiceResult.outcome === 'accepted') {
+                                console.log('User accepted the install prompt');
+                                installBtn.remove();
+                            }
+                            deferredPrompt = null;
+                        });
+                    });
+                    
+                    document.body.appendChild(installBtn);
+                });
+            } catch (error) {
+                console.log('Install prompt not available in this environment');
+            }
+        }
+
+        // Show instructions for saving the file when PWA features aren't available
+        function showInstallInstructions() {
+            setTimeout(() => {
+                const instructionDiv = document.createElement('div');
+                instructionDiv.innerHTML = `
+                    <div style="position: fixed; top: 20px; right: 20px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 15px 20px; border-radius: 10px; max-width: 300px; z-index: 1000; box-shadow: 0 10px 25px rgba(0,0,0,0.2);">
+                        <div style="font-weight: 600; margin-bottom: 8px;">💡 Want the full app?</div>
+                        <div style="font-size: 0.9em; line-height: 1.4;">Save this page as an HTML file and open it in your browser to get notifications and install features!</div>
+                        <button onclick="this.parentElement.parentElement.remove()" style="position: absolute; top: 5px; right: 8px; background: none; border: none; color: white; font-size: 18px; cursor: pointer;">×</button>
+                    </div>
+                `;
+                document.body.appendChild(instructionDiv);
+                
+                // Auto-remove after 10 seconds
+                setTimeout(() => {
+                    if (instructionDiv.parentElement) {
+                        instructionDiv.remove();
+                    }
+                }, 10000);
+            }, 2000);
+        }
+
+        // Schedule daily notifications (with safe checking)
+        function scheduleNotifications(registration) {
+            try {
+                if ('Notification' in window) {
+                    // Check if we should show a notification
+                    const lastNotification = friendReminder.getStoredData('lastNotification', null);
+                    const today = new Date().toDateString();
+                    
+                    if (lastNotification !== today && Notification.permission === 'granted') {
+                        // Show notification if it's a new day
+                        registration.showNotification('Time to connect! 💕', {
+                            body: 'Your daily friend reminder is ready!',
+                            icon: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJhIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjNjY3ZWVhIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNzY0YmEyIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjEyOCIgaGVpZ2h0PSIxMjgiIGZpbGw9InVybCgjYSkiIHJ4PSIyMCIvPjx0ZXh0IHg9IjY0IiB5PSI4MCIgZm9udC1zaXplPSI0OCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+8J+SmTwvdGV4dD48L3N2Zz4=',
+                            tag: 'daily-reminder',
+                            requireInteraction: true
+                        });
+                        
+                        friendReminder.setStoredData('lastNotification', today);
+                    }
+                }
+            } catch (error) {
+                console.log('Notifications not available:', error.message);
+            }
+        }
+
+        // Initialize PWA features safely
+        initializePWA();
+        initializeInstallPrompt();
+
+        // Global functions for onclick handlers
+        function addFriend() { friendReminder.addFriend(); }
+        function pickRandomFriend() { friendReminder.pickRandomFriend(); }
+        function markTexted() { friendReminder.markTexted(); }
+        function skipToday() { friendReminder.skipToday(); }
+        function handleEnter(event) { friendReminder.handleEnter(event); }
+
+        // Check for daily reset when page becomes visible
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) {
+                friendReminder.checkDailyReset();
+            }
+        });
+    </script>
+</body>
+</html>
